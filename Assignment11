@@ -1,0 +1,10 @@
+#1.Write a script to print your name, course name, and today's date.
+!/bin/bash
+echo "My name is Abhishek Singh"
+echo "Course is DevOps"
+echo "Today's date is $(date)"
+
+Output
+My name is Abhishek Singh
+Course is DevOps
+Today's date is Sat Nov 14 16:45:40 UTC 2026
