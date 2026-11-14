@@ -8,3 +8,43 @@ Output
 My name is Abhishek Singh
 Course is DevOps
 Today's date is Sat Nov 14 16:45:40 UTC 2026
+
+#2 : 2.Accept two numbers from the user and print their sum, difference, product, and quotient.
+#!/bin/bash
+read -p "Enter 1st number : " a
+read -p "Enter 2nd number : " b
+echo "Addition of $a & $b is $((a+b))"
+echo "Substraction of $a & $b is $((a-b))"
+echo "Product of $a & $b is $((a*b))"
+echo "Quotinet of $a & $b is $((a/b))"
+
+Output
+Enter 1st number : 10
+Enter 2nd number : 5
+Addition of 10 & 5 is 15
+Substraction of 10 & 5 is 5
+Product of 10 & 5 is 50
+Quotinet of 10 & 5 is 2
+
+#4:Accept a filename as a command-line argument and display its name and size.
+#!/bin/bash
+read -p "Enter file name " str
+du -h $str
+
+Output
+Enter file name file1.txt
+0       file1.txt
+
+5 :Store the output of hostname, whoami, and date in variables and display them in a formatted report.
+#!/bin/bash
+a=$(hostname)
+b=$(whoami)
+c=$(date)
+echo "HostName is : $a"
+echo "Currently logged in user is : $b"
+echo "Today's date is : $c"
+
+Output
+HostName is : AP-PF4ZQPDJ
+Currently logged in user is : abhishekunix
+Today's date is : Sat Nov 14 17:19:21 UTC 2026
