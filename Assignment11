@@ -48,3 +48,203 @@ Output
 HostName is : AP-PF4ZQPDJ
 Currently logged in user is : abhishekunix
 Today's date is : Sat Nov 14 17:19:21 UTC 2026
+
+-----------------------
+Assignment-2:
+-------------
+1.Check whether a number is positive, negative, or zero.
+#!/bin/bash
+read -p "Enter a number to check the values : " a
+if [ $a -gt 0 ]; then
+        echo "Number is positive"
+elif [ $a -lt 0 ]; then
+        echo "Number is negative"
+else
+echo "Number is zero"
+fi
+
+Output
+Enter a number to check the values : 23
+Number is positive
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./21.sh
+Enter a number to check the values : -23
+Number is negative
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./21.sh
+Enter a number to check the values : 0
+Number is zero
+
+2.Check whether a number is even or odd.
+#!/bin/bash
+read -p "Enter a number : " a
+if [ $((a%2)) -eq 0 ]; then
+        echo "Number is EVEN"
+else
+        echo "Number is ODD"
+fi
+
+Output
+Enter a number : 24
+Number is EVEN
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./22.sh
+Enter a number : 45
+Number is ODD
+
+3.Accept three numbers and print the largest.
+#!/bin/bash
+read -p "Enter 1st number : " a
+read -p "Enter 2nd number : " b
+read -p "Enter 3rd number : " c
+if [ $a -ge $b ] && [ $a -ge $c ]; then
+        echo "Greatest number is $a"
+elif [ $b -ge $a ] && [ $b -ge $c ]; then
+        echo "Greatest numbe is $b"
+else
+        echo "Greatest number is $c"
+fi
+
+Enter 1st number : 23
+Enter 2nd number : 45
+Enter 3rd number : 56
+Greatest number is 56
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./23.sh
+Enter 1st number : 56
+Enter 2nd number : 78
+Enter 3rd number : 34
+Greatest number is 78
+
+4.Check whether a given file exists, is readable, and is writable.
+#!/bin/bash
+read -p "Enter file name : " file
+if [ -e "$file" ]; then
+        echo "File exists"
+        if [ -f "$file" ];then echo "$file is regular file"; fi
+        if [ -r "$file" ];then echo "file is readeable"; fi
+        if [ -w "$file" ];then echo "File is writable" ;fi
+else
+        echo "File does not exist"
+fi
+
+Output
+Enter file name : file1.txt
+File exists
+file1.txt is regular file
+file is readeable
+File is writable
+
+5.Accept a student's marks and print the grade using your chosen grading scale.
+#!/bin/bash
+declare -i marks
+read -p "Enter the marks obtained by student: " marks
+if [ $marks -ge 85 ]; then
+        echo "Good job , Grade A "
+elif [ $marks -ge 75 ];then
+        echo "Good job, Grade B"
+elif [ $marks -ge 60 ];then
+        echo "Good job, Grade C"
+elif [ $marks -ge 40 ];then
+        echo "Do better next time, Grade D"
+
+else
+        echo "You have failed"
+fi
+
+Output
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./26.sh
+Enter the marks obtained by student: 78
+Good job, Grade B
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./26.sh
+Enter the marks obtained by student: 90
+Good job , Grade A
+
+if [[ "$a" =~ ^-?[0-9]+$ && "$b" =~ ^-?[0-9]+$ ]]; then
+Command to check if the input is valid integer or not
+
+6.Create a menu-driven calculator using case that supports addition, subtraction,
+multiplication, and division.
+#!/bin/bash
+read -p "Enter 1st number : " a
+read -p "Enter 2nd number : " b
+echo "============================"
+echo "======= 1: Addition ========"
+echo "======= 2: Substraction ===="
+read -p "Enter choice" c
+if [[ "$a" =~ ^-?[0-9]+$ && "$b" =~ ^-?[0-9]+$ ]]; then
+        if [ $c -eq 1 ]; then
+                echo "Addition of $a and $b is $((a+b))"
+        elif [ $c -eq 2 ];then
+                echo "Substraction of $a and $b is $((a-b))"
+        else
+                echo "Wrong Choice"
+        fi
+else
+        echo "Enter valid numbers"
+fi
+
+Output
+Enter 1st number : 34
+Enter 2nd number : 45
+============================
+======= 1: Addition ========
+======= 2: Substraction ====
+Enter choice1
+Addition of 34 and 45 is 79
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ ./27.sh
+Enter 1st number : er
+Enter 2nd number : 34
+============================
+======= 1: Addition ========
+======= 2: Substraction ====
+Enter choice3
+Enter valid numbers
+
+-------------------------------------------
+Assignment-3:
+-------------
+1.Print numbers from 1 to 100 using a for loop
+#!/bin/bash
+echo "We are going to print the numbers from 1 to 100"
+for (( i= 0 ; i<=100 ; i++ ))
+do
+        echo "$i"
+done
+
+2.Print the multiplication table of a number entered by the user.
+#!/bin/bash
+read -p "Enter the number to display table of : " a
+for (( i=1 ; i<=10 ; i++ ))
+do
+        echo "$a * $i = $((a*i))"
+
+done
+
+Output
+Enter the number to display table of : 5
+5 * 0 = 0
+5 * 1 = 5
+5 * 2 = 10
+5 * 3 = 15
+5 * 4 = 20
+5 * 5 = 25
+5 * 6 = 30
+5 * 7 = 35
+5 * 8 = 40
+5 * 9 = 45
+5 * 10 = 50
+
+3.Calculate the factorial of a number using a loop.
+#!/bin/bash
+read -p "Enter the number to print Factorial of : " a
+c=1
+for (( i =1 ; i<=$a ; i++ ))
+do
+        c=$(( c * i ))
+done
+echo "Factorial number : $c"
+
+Output
+Enter the number to print Factorial of : 10
+Factorial number : 3628800
+
+
+
+
