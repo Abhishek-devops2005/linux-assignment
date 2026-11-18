@@ -288,5 +288,30 @@ Number of line in the file : 3
 Number of words in the file : 5
 Number of characters in the file : 40
 
+3.Search a log file for the words ERROR, WARNING, and FAILED, and save matching
+lines into separate files.
 
+#!/bin/bash
+read -p "Enter the log file name :" file
+grep ERROR $file >> error.txt
+grep WARNING $file >> warning.txt
+grep FAILED $file >> failed.txt
+
+Output
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ cat error.txt
+2026-11-18 08:25:12 ERROR Failed to connect to payment gateway
+2026-11-18 09:15:42 ERROR Database query timeout
+2026-11-18 10:10:21 ERROR Unable to write application log
+2026-11-18 11:25:30 ERROR Backup service stopped unexpectedly
+2026-11-18 12:10:40 ERROR API request returned status 500
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ cat failed.txt
+2026-11-18 08:27:15 FAILED Payment transaction ID 10234
+2026-11-18 09:30:18 FAILED User authentication attempt
+2026-11-18 11:20:10 FAILED Backup operation unsuccessful
+2026-11-18 12:15:22 FAILED Report generation failed
+abhishekunix@AP-PF4ZQPDJ:~/production/shellscripts$ cat warning.txt
+2026-11-18 08:20:45 WARNING CPU usage reached 75 percent
+2026-11-18 09:10:05 WARNING Memory usage reached 80 percent
+2026-11-18 10:05:33 WARNING Disk usage reached 85 percent
+2026-11-18 12:05:15 WARNING Network latency is high
 
